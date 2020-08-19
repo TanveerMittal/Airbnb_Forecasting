@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 # This function is going to be used to accesss the newest data that we dont have
 # able to pass in the date that we want the new data from in the string '0000-00-00' format
-def get_latest_calendar(date = '2020-11-20'):
+def get_latest_calendar(date='2020-11-20'):
     # the website we need to access to get the data
     bnbdata = "http://insideairbnb.com/get-the-data.html"
     # requesting to access the website
@@ -27,7 +27,7 @@ def get_latest_calendar(date = '2020-11-20'):
     # we need to be able to access the calendar.csv file from the page which will always be in the first index of the list because it would be the most up to date data
     latest_calendar_df = pd.read_csv(result[1])
     # accessing all the listings that we want to find the data for in calendar.csv
-    listing_df = pd.read_csv(r'data/listings.csv')
+    listing_df = pd.read_csv(r'../data/listings.csv')
     # creating a hash set of all the unique ids within the listings.csv
     idset = set(listing_df.id.unique())
     # deleting all the rows that do not have the listing ids listed in idset
